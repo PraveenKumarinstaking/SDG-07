@@ -185,13 +185,19 @@ const FBAi = (() => {
 
       Return ONLY a JSON object with keys: "surplus", "risk", "insight".`;
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/${FBConfig.GEMINI_MODEL}:generateContent?key=${FBConfig.GEMINI_API_KEY}`, {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${FBConfig.GEMINI_MODEL}:generateContent?key=${FBConfig.GEMINI_API_KEY}`;
+      const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }]
         })
       });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(`HTTP ${response.status}: ${errorData.error?.message || response.statusText}`);
+      }
 
       const data = await response.json();
       const text = data.candidates[0].content.parts[0].text;
@@ -242,9 +248,10 @@ const FBAi = (() => {
       FBNotifications.show('Gemini Prediction', `Surplus forecasted: ${result.surplus} meals`, 'success');
       
     } catch (err) {
-      console.error(err);
-      FBNotifications.show('Prediction Error', 'Could not connect to Gemini AI', 'error');
-      matchDiv.innerHTML = '<div class="empty-state text-danger"><i class="bi bi-exclamation-triangle"></i><p>Connection failed</p></div>';
+      console.error('Gemini Error:', err);
+      const errorMsg = err.message || 'Check your internet connection';
+      FBNotifications.show('Prediction Error', `Gemini API: ${errorMsg}`, 'error');
+      matchDiv.innerHTML = `<div class="empty-state text-danger"><i class="bi bi-exclamation-triangle"></i><p>Connection failed: ${errorMsg}</p></div>`;
     }
   }
 
