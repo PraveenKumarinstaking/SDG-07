@@ -34,7 +34,7 @@ FoodBridge is a high-impact digital platform designed to solve **UN SDG Goal 2: 
 ## 🔄 The Solution (Unified Workflow)
 FoodBridge operates a unique **Dual-Entry System** that ensures 100% inclusivity.
 
-![Unified Workflow Diagram](/C:/Users/SURYA/.gemini/antigravity/brain/fc03e4c0-6d0c-45de-a733-b3c6ac8ec909/unified_foodbridge_workflow_1773494636366.png)
+![Unified Workflow Diagram](C:/Users/SURYA/.gemini/antigravity/brain/fc03e4c0-6d0c-45de-a733-b3c6ac8ec909/unified_foodbridge_workflow_1773494636366.png)
 
 1.  **Dual Entry**: Businesses upload via **Web Portal**; community members call the **IVR Helpline**.
 2.  **AI Triage**: **Google Gemini AI** predicts surplus quantity and prioritizes requests based on urgency.
