@@ -185,7 +185,7 @@ const FBAi = (() => {
 
       Return ONLY a JSON object with keys: "surplus", "risk", "insight".`;
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${FBConfig.GEMINI_MODEL}:generateContent?key=${FBConfig.GEMINI_API_KEY}`, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/${FBConfig.GEMINI_MODEL}:generateContent?key=${FBConfig.GEMINI_API_KEY}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
