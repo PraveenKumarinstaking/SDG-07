@@ -196,7 +196,11 @@ const FBAi = (() => {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(`HTTP ${response.status}: ${errorData.error?.message || response.statusText}`);
+        const reason = errorData.error?.message || response.statusText;
+        if (response.status === 403 && reason.includes('leaked')) {
+          throw new Error('This API Key has been blocked (LEAKED). Please generate a NEW key at aistudio.google.com and do NOT share it.');
+        }
+        throw new Error(`HTTP ${response.status}: ${reason}`);
       }
 
       const data = await response.json();
@@ -250,8 +254,20 @@ const FBAi = (() => {
     } catch (err) {
       console.error('Gemini Error:', err);
       const errorMsg = err.message || 'Check your internet connection';
-      FBNotifications.show('Prediction Error', `Gemini API: ${errorMsg}`, 'error');
-      matchDiv.innerHTML = `<div class="empty-state text-danger"><i class="bi bi-exclamation-triangle"></i><p>Connection failed: ${errorMsg}</p></div>`;
+      FBNotifications.show('Connection Failed', errorMsg, 'error');
+      
+      let hint = '';
+      if (errorMsg.includes('404')) hint = 'Using a "leaked" key can sometimes cause 404 errors. Please use a fresh key.';
+      if (errorMsg.includes('leaked')) hint = 'Please go to Google AI Studio, create a NEW key, and update js/config.js locally.';
+      
+      matchDiv.innerHTML = `
+        <div class="empty-state text-danger">
+          <i class="bi bi-shield-lock" style="font-size:3rem; margin-bottom:1rem;"></i>
+          <p style="font-weight:700;">Connection Failed</p>
+          <p style="font-size:.85rem;">${errorMsg}</p>
+          ${hint ? `<p class="mt-2" style="font-size:.85rem; padding: 10px; background:rgba(220,53,69,0.05); border-radius:8px; border:1px solid rgba(220,53,69,0.1);">${hint}</p>` : ''}
+        </div>
+      `;
     }
   }
 
