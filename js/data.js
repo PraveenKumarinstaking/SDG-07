@@ -22,7 +22,8 @@ const FBData = (() => {
     { id: 'u6', name: 'Shelter Home Trust', email: 'shelter@ngo.org', password: '1234', role: 'ngo', phone: '9876543222', location: 'Kurla West', capacity: 150, contact: 'Arun Joshi' },
     { id: 'u7', name: 'Rahul Verma', email: 'rahul@volunteer.com', password: '1234', role: 'volunteer', phone: '9876543230', location: 'Sion', availability: true },
     { id: 'u8', name: 'Meena Devi', email: 'meena@volunteer.com', password: '1234', role: 'volunteer', phone: '9876543231', location: 'Matunga', availability: true },
-    { id: 'u9', name: 'Admin User', email: 'admin@foodbridge.com', password: 'admin', role: 'admin', phone: '9876543200', location: 'HQ' }
+    { id: 'u9', name: 'Admin User', email: 'admin@foodbridge.com', password: 'admin', role: 'admin', phone: '9876543200', location: 'HQ' },
+    { id: 'u10', name: 'lv5251071@gmail.com', email: '12345678', password: '1234', role: 'donor', phone: '9043323273', location: 'Chennai', donorType: 'Event Handler' }
   ];
 
   const seedDonations = [
@@ -31,6 +32,7 @@ const FBData = (() => {
     { id: 'd3', donorId: 'u3', donorName: 'Green Plate Hotel', foodType: 'Biryani & Breads', quantity: 120, pickupTime: '2026-03-14T21:00', location: 'Juhu Beach', status: 'picked', createdAt: '2026-03-14T09:00', ngoId: 'u5', volunteerId: 'u7', image: null },
     { id: 'd4', donorId: 'u1', donorName: 'Anand Kumar', foodType: 'Dal & Rice', quantity: 35, pickupTime: '2026-03-14T22:00', location: 'Mumbai Central', status: 'accepted', createdAt: '2026-03-14T10:00', ngoId: 'u4', volunteerId: null, image: null },
     { id: 'd5', donorId: 'u2', donorName: 'Priya Sharma', foodType: 'Cakes & Pastries', quantity: 40, pickupTime: '2026-03-15T10:00', location: 'Bandra West', status: 'pending', createdAt: '2026-03-14T10:30', ngoId: null, volunteerId: null, image: null },
+    { id: 'd6', donorId: 'u10', donorName: 'lv5251071@gmail.com', foodType: 'Wedding Banquet (South Indian)', quantity: 150, pickupTime: '2026-03-15T19:00', location: 'Chennai', status: 'pending', createdAt: '2026-03-15T08:00', ngoId: null, volunteerId: null, image: null },
   ];
 
   const seedDeliveries = [
