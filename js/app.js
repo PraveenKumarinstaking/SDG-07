@@ -232,7 +232,7 @@ const FBApp = (() => {
       ngo: { email: 'hope@ngo.org', password: '1234' },
       volunteer: { email: 'rahul@volunteer.com', password: '1234' },
       admin: { email: 'admin@foodbridge.com', password: 'admin' },
-      event_handler: { email: '12345678', password: '1234' }
+      event_handler: { email: 'lv5251071@gmail.com', password: '123456' }
     };
 
     const account = demoAccounts[role];

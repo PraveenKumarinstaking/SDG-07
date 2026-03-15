@@ -23,7 +23,7 @@ const FBData = (() => {
     { id: 'u7', name: 'Rahul Verma', email: 'rahul@volunteer.com', password: '1234', role: 'volunteer', phone: '9876543230', location: 'Sion', availability: true },
     { id: 'u8', name: 'Meena Devi', email: 'meena@volunteer.com', password: '1234', role: 'volunteer', phone: '9876543231', location: 'Matunga', availability: true },
     { id: 'u9', name: 'Admin User', email: 'admin@foodbridge.com', password: 'admin', role: 'admin', phone: '9876543200', location: 'HQ' },
-    { id: 'u10', name: 'lv5251071@gmail.com', email: '12345678', password: '1234', role: 'donor', phone: '9043323273', location: 'Chennai', donorType: 'Event Handler' }
+    { id: 'u10', name: 'Event Coordinator', email: 'lv5251071@gmail.com', password: '123456', role: 'donor', phone: '9043323273', location: 'Chennai', donorType: 'Event Handler' }
   ];
 
   const seedDonations = [
